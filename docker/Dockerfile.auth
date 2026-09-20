@@ -1,0 +1,6 @@
+FROM node:18-alpine
+WORKDIR /app
+RUN npm init -y && npm install express
+RUN echo "const express = require('express'); const app = express(); app.get('/health', (req,res)=>res.send('Auth OK')); app.listen(3000, ()=>console.log('Auth running on 3000'));" > index.js
+EXPOSE 3000
+CMD ["node", "index.js"]
