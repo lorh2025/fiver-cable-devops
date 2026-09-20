@@ -1,6 +1,0 @@
-FROM node:18-alpine
-WORKDIR /app
-RUN npm init -y && npm install express
-RUN echo "const express = require('express'); const app = express(); app.get('/health', (req,res)=>res.send('Pedidos OK')); app.listen(3002, ()=>console.log('Pedidos running on 3002'));" > index.js
-EXPOSE 3002
-CMD ["node", "index.js"]
